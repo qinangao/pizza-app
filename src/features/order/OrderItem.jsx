@@ -3,13 +3,16 @@ function OrderItem({ item, isLoadingIngredients, ingredients }) {
   const { quantity, name, totalPrice } = item;
 
   return (
-    <li>
+    <li className="space-y-1 py-3">
       <div>
         <p>
           <span>{quantity}&times;</span> {name}
         </p>
         <p>{formatCurrency(totalPrice)}</p>
       </div>
+      <p className="text-sm capitalize italic text-stone-500">
+        {isLoadingIngredients ? "loading..." : ingredients.join(", ")}
+      </p>
     </li>
   );
 }
